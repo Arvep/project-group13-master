@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import styles from '../css/symptoms.css';
 //images
 import girlSick from "../img/Girlsick.png";
+import blueTher from "../img/Thermometerblue.png";
+import redTher from "../img/Thermometerred.png";
 import * as typeformEmbed from '@typeform/embed'
 
 
@@ -139,8 +141,8 @@ class Symptoms extends Component{
 
 							{/* title */}
 							<div className="row-md-1 heading-section text-left ftco-animate fadeInUp ftco-animated">
-							<div className= "justify-content-center heading-section text-up ftco-animate fadeInUp ftco-animated">
-									<span className="subheading-edit">
+							<div className= "justify-content-center heading-section text-up ftco-animate fadeInUp ftco-animated">								
+									<span className="subheading-edit ">
 										You feel sick and fear it's the Corona virus? 
 									</span>
 								</div>
@@ -151,18 +153,18 @@ class Symptoms extends Component{
 					<div className="row d-flex no-gutters">
 
 					{/* image */}
-					<div className="col-md-6 col-lg-5 d-flex" style={{maxWidth: 408, maxHeight: 438,top:'40px'}}>
+					<div className="col-md-6 col-lg-5 d-flex" style={{maxWidth: 338, maxHeight: 338,top:'0px'}}>
 							<div className="img-about img d-flex align-items-stretch">
 								<div className="overlay"></div>
-								<img className="img d-flex align-self-stretch align-items-center" src={girlSick} style={{ Width: 238, Height: 238,left:'65px',top:'100px'}}>
+								<img className="img d-flex align-self-stretch align-items-center" src={girlSick} style={{ minWidth: 338, minHeight: 338,left:'65px',top:'100px'}}>
 								</img>
 							</div>
 					</div>
 				    {/* survey */}
-					<div className="col-md-6 col-lg-7 d-flex align-self-stretch align-items-center" style={{maxWidth: 608, left:'80px',maxHeight: 638,top:'130px'}}>
+					<div className="col-md-6 col-lg-7 d-flex align-self-stretch align-items-center" style={{maxWidth: 508, left:'180px',maxHeight: 238,top:'130px'}}>
 					<div className="py-md-1 w-100 bg-light px-md-5">
 					<div className="py-md-1">
-							<div className="align-self-stretch align-items-center row justify-content-start pb-3" style={{width:'600px',height:'450px'}}>
+							<div className="align-self-stretch align-items-center row justify-content-start pb-3">
 								<div className="align-items-center col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
 									
 									{/* start */}
@@ -170,18 +172,18 @@ class Symptoms extends Component{
 									<script src="https://embed.typeform.com/embed.js" type="text/javascript"></script>
 									*/}
 										<span className="subheading">Let's do a health check!</span>
-										<h2 className="mb-4 align-self-stretch align-items-center">Symptoms survey</h2>
-										<p>This survey will give you a hint to see if you need to get a test or to</p>
-										<p>contact the health authorities.</p>
+										<h3 className="mb-4 align-self-stretch align-items-center">Symptoms survey</h3>
+										<p>This survey will give you a hint to see if you need to get tested or to
+										contact the health office.</p>
 										
 											<p className="d-flex align-self-stretch align-items-center">
-											Note -> This is not a definite evaluation. We should be aware of our </p>
-											<p>symptoms and protect ourselves every day.
+											Note: This is not a definite evaluation. We should be aware of our
+											symptoms and protect ourselves every day.
 											</p>
 										
 									</div>
 
-									<div className="counter-wrap ftco-animate d-flex mt-md-3 fadeInUp ftco-animated align-items-center" >
+									<div className="counter-wrap ftco-animate d-flex mt-md-3 fadeInUp ftco-animated align-items-center">
 									<div className="text align-items-center">
 										<button type="button" value="Start the Survey" className="mb-12 btn-custom align-self-stretch align-items-center" onClick={()=>this.myquiz()}>
 											Start the Survey!
@@ -205,19 +207,25 @@ class Symptoms extends Component{
 					{/*end of survey */}
 				     
 				</div>
-				 		  
-				</section>
-				<section className="q2 ftco-about img ftco-section" id="q2">
+			
+			</section>
+
+			{/*ANSWERS SECTION */}
+			<section className="q2 ftco-about img ftco-section" id="q2">
 					
 					<div className="container">
 					
 					<div className="row d-flex no-gutters">
-						<div className="col-md-4 col-lg-6 d-flex">
+
+					
+			{/*IMAGE */}	
+					<div className="col-md-6 col-lg-5 d-flex" style={{maxWidth: 338, maxHeight: 338,top:'0px'}}>
 							<div id="theleft1" className="theleft1 img-about img d-flex align-items-stretch">
 								<div className="overlay"></div>
-								<img className="theleft1 img d-flex align-self-stretch align-items-center" src={girlSick}/>
+								<img className="theleft1 img d-flex align-self-stretch align-items-center" src={girlSick} style={{ minWidth: 338, minHeight: 338,left:'65px',top:'100px'}}>
+								</img>
 							</div>
-						</div>
+					</div>
 
 			
 

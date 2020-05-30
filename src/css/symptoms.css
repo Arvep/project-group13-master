@@ -1,8 +1,8 @@
 #q1{
-    display:block;
+    display:none;
 }
 #q2{
-    display:none;
+    display:block;
 }
 #theleft1{
     display:block;
@@ -35,15 +35,15 @@
     /* You feel sick and fear it’s the Corona Virus? */
 
 position: absolute;
-width: 500px;
+width: 450px;
 height: 69px;
-left: 0px;
+left: 50px;
 top: 20px;
 
-font-family: Acme;
+font-family: "Raleway",sans-serif;
 font-style: normal;
-font-weight: normal;
-font-size: 47px;
+font-weight: bolder;
+font-size: 27px;
 line-height: 147%;
 /* identical to box height, or 69px */
 

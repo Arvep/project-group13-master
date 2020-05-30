@@ -34,15 +34,17 @@ class Home extends Component{
                           <Link to="/" id="background-button">Background information on Coronavirus</Link>
                         </div>
                       </div>
-                      <img className="one-third js-fullheight align-self-end order-md-last img-fluid header-img" src={girl} alt="" />
+                      <img className="one-third js-fullheight align-self-end order-md-last img-fluid header-img" src={girl} alt="Girl staying at home" />
                     </div>
                   </div>
                   <div className="container home-content">
-                      <div className="safety-header">
-                        <h2 className="covidmaster">COVID MASTER</h2>
-                        <h1 style={{color: '#035755'}}>Precautionary measures for everyone</h1>
-                        <p>By following easily applicable behaviours patterns it´s possible to slow down the worldwide spread of Covid-19. The scientific background of the recommended Behaviour Patterns is linked.</p>
-                      </div>
+                      {/*MEASURES*/}
+                      <div className="container text-about heading-section col-md-9 text mt-5" style={{textAlign: 'center'}}>
+                        <span className="covidmaster">COVID-MASTER</span>
+                        <h1 style={{color: '#035755',fontWeight:"bold"}}>Precautionary measures for everyone</h1>
+                        <p className="col-md-12">By following easily applicable behaviours patterns it´s possible to slow down the worldwide spread of Covid-19. The scientific background of the recommended Behaviour Patterns is linked.</p>
+                     </div>
+                      
 
                       {/* wear masks */}
                       <div className="row d-flex no-gutters align-items-center justify-content-center safety-measure">
@@ -179,26 +181,30 @@ class Home extends Component{
                       </div>
 
                       {/* next section */}
-                      <div className="text mt-5" style={{textAlign: 'center'}}>
+                      <div className="container text-about col-md-7 heading-section text mt-5" style={{textAlign: 'center'}}>
                         <span className="covidmaster">COVID-MASTER</span>
-                        <h1 style={{color: '#035755'}}>Complete and simple overview of  Local Corona regulations</h1>
+                        <h1 style={{color: '#035755',fontWeight:"bold"}}>Complete and simple overview of  Local Corona regulations</h1>
                         <p>Press on your federal state to access the applicable local regulations.</p>
                       </div>
                       {/* map of Germany */}
                       <img src={homepageMap} className="homepage-map"/>
 
                       {/* symptoms */}
-                      <div className="text mt-5" style={{textAlign: 'center'}}>
+                      <div className="container text-about col-md-7 heading-section text mt-5" style={{textAlign: 'center'}}>
                         <span className="covidmaster">COVID-MASTER</span>
-                        <h1 style={{color: '#035755'}}>Symptoms</h1>
-                        <p>Do you feel sick? Here is an overview of the typical symptomps of Covid-19. Additionally, we created an easy questionaire, with which you can self-test your possibility of being infected.</p>
+                        <h1 style={{color: '#035755',fontWeight:"bold"}}>Symptoms</h1>
+                        <p className="col-md-15">Do you feel sick? Here is an overview of the typical symptoms of the COVID-19. Additionally, we created an easy questionnaire, with which you can self-test your 
+                        possibility of being infected.</p>
                       </div>
                       {/* test */}
                       <div id="test">
                         <img src={test}/>
-                        <h1 style={{marginLeft: '2rem', fontWeight: '700'}}><Link to="#" style={{color: '#035755'}}>Do you Corona? Do the online test!</Link></h1>
+                        <div id="row">
+                        <h2 style={{marginLeft: '2rem', fontWeight: '700'}} style={{color: '#035755'}}>Do you need to get tested for COVID-19?</h2>
+                        <h2 class="nav-link active" style={{marginLeft: '2rem', fontWeight: '700',color: '#035755'}}><Link to="/symptoms" style={{textDecoration: 'underline'}}>Do the online questionaire!</Link></h2>
+                        </div>
                       </div>
-                      <img src={homepageSymptoms} id="homepage-symptoms-img"/>
+                      <img src={homepageSymptoms} id="homepage-symptoms-img" style={{maxWidth:1167.68,maxHeight:871.58}}/>
                     </div>
                   </section>
         )
