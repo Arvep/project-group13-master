@@ -1,0 +1,36 @@
+.safety-measures-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.image-title {
+    display: flex;
+    flex-direction: column;
+    margin-right: 5em;
+}
+
+.image-title img {
+    max-width: 30vw;
+    margin-top: 2rem;
+}
+
+.safety-tabs {
+    width: 70vw;
+    min-height: 50vh;
+}
+
+.safety-tabs a, p {
+    font-size: smaller;
+}
+
+.safety-tabs p {
+    margin-top: 1rem;
+    text-align: justify;
+}
+
+@media (min-width: 980px) {
+    .safety-measures-content {
+        flex-wrap: nowrap;
+    }
+}

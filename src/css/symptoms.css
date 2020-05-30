@@ -1,0 +1,53 @@
+#q1{
+    display:block;
+}
+#q2{
+    display:none;
+}
+#theleft1{
+    display:block;
+}
+#theleft2{
+    display:none;
+}
+#theleft3{
+    display:none;
+}
+#ans1{
+    display:none;
+}
+#ans2{
+    display:none;
+}
+#ans3{
+    display:none;
+}
+#ans4{
+    display:none;
+}
+#ans5{
+    display:none;
+}
+#ans6{
+    display:none;
+}
+.subheading-edit{
+    /* You feel sick and fear it’s the Corona Virus? */
+
+position: absolute;
+width: 500px;
+height: 69px;
+left: 0px;
+top: 20px;
+
+font-family: Acme;
+font-style: normal;
+font-weight: normal;
+font-size: 47px;
+line-height: 147%;
+/* identical to box height, or 69px */
+
+
+color: #035755;
+
+}
