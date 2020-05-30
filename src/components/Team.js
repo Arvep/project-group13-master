@@ -6,7 +6,7 @@ class Team extends Component{
 
         return(
          
-<section className="q1 ftco-about img ftco-section" id="q1">
+<section className=" ftco-about img ftco-section">
   
     <div className="container">
 

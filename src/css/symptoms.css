@@ -1,11 +1,8 @@
 #q1{
-    display:none;
+    display:block;
 }
 #q2{
-    display:block;
-}
-#theleft1{
-    display:block;
+    display:none;
 }
 #theleft2{
     display:none;
@@ -19,18 +16,36 @@
 #ans2{
     display:none;
 }
+/*when trouble brathing :emergency*/
 #ans3{
     display:none;
 }
 #ans4{
     display:none;
 }
+/*when some symptoms*/
 #ans5{
     display:none;
 }
 #ans6{
     display:none;
 }
+/*when no symptoms*/
+#ans7{
+    display:none;
+}
+/*when only sore thorat symptoms*/
+#ans8{
+    display:none;
+}
+
+#red-image{
+    display:none;
+}
+#red-text{
+    display:none;
+}
+
 .subheading-edit{
     /* You feel sick and fear it’s the Corona Virus? */
 

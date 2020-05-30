@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import styles from '../css/symptoms.css';
 //images
 import girlSick from "../img/Girlsick.png";
-import blueTher from "../img/Thermometerblue.png";
-import redTher from "../img/Thermometerred.png";
 import * as typeformEmbed from '@typeform/embed'
 
 
@@ -16,17 +14,9 @@ class Symptoms extends Component{
 		helpnumbers(){
 		document.querySelector(".theleft3").style.display="block";
 		}
-	
-	/*state={
-		answers:[{question:'',answer:''}]
-	  }
 
-	addAnswer=(answer) =>{
-		let answers=[...this.state.answers,answer]
-		this.setState({
-		  answers: answers
-		})
-	  }*/
+	
+	/*	*/
 	
 	myquiz(){ 
 		const ref=typeformEmbed.makePopup("https://arantxavpaz.typeform.com/to/eiFAmC", {
@@ -63,60 +53,91 @@ class Symptoms extends Component{
 						var str = JSON.stringify(resp);
 					
 						document.querySelector(".theleft2").style.display="block";
-						document.querySelector(".theleft1").style.display="none";
 						document.querySelector(".theleft3").style.display="none";
 										//Less than 40?
 										var n = str.search("Under 40");
 										console.log(n);
 										if (n>0){
-											document.querySelector(".ans1").style.display="block";
+											document.querySelector("#ans1").style.display="block";
 										}
 										//risk group
 										var n = str.search("None");
 										console.log(n);
 										if (n<0){
-											document.querySelector(".ans2").style.display="block";
+											document.querySelector("#ans2").style.display="block";
 										}
 										//in contact with infected?
 										var n = str.search("true");
 										console.log(n);
 										if (n>0){
-											document.querySelector(".ans4").style.display="block";
+											document.querySelector("#ans4").style.display="block";
 										}
 									
 										//when?
 										var n = str.search("This week");
 										var m = str.search("Last week");
 										console.log(n);
+										//keep track of your symptoms
 										if((n>0) ||(m>0)){
-											document.querySelector(".ans6").style.display="block";
+											document.querySelector("#ans6").style.display="block";
 										}
 										//emergency_?
 										var n = str.search("Difficulty breathing");
 										console.log(n);
 										if (n>0){
-											document.querySelector(".ans3").style.display="block";
+											document.querySelector("#ans3").style.display="block";
+											document.querySelector("#red-text").style.display="block";
+											document.querySelector("#blue-text").style.display="none";
 										}else{
+											
+											document.querySelector("#red-text").style.display="none";
+											document.querySelector("#blue-text").style.display="block";
 											//which symptoms_?
 											var m = str.search("None");
 											console.log(m);
-											if (n<0){
-												document.querySelector(".ans5").style.display="block";
+											if (m<0){
+												//to keep track of the symptoms
+
+												var a=str.search("Sore throat");
+												var b=str.search("Coughing");
+												var c=str.search("Fever");
+												var d=str.search("Shaking chills");
+												var e=str.search("Muscular pain");
+
+												if ((a>0) && (c<0) && (b<0)&& (d<0)&& (e<0)){
+													//only sore throat
+												document.querySelector("#ans8").style.display="block";
+
+												}else{
+													//with other symptoms
+												document.querySelector("#ans5").style.display="block";
+												}
+												
+
+											}else{
+												//to keep distance and wear mask
+												document.querySelector("#ans7").style.display="block";	
+											}
 										}
 					
-										}
+										
 										
 						});
 		  },
 		  onReady: function () {
 			console.log('Typeform is ready')
 			
-			document.querySelector(".ans1").style.display="none";
-			document.querySelector(".ans2").style.display="none";
-			document.querySelector(".ans3").style.display="none";
-			document.querySelector(".ans4").style.display="none";
-			document.querySelector(".ans5").style.display="none";
-			document.querySelector(".ans6").style.display="none";
+			document.querySelector("#ans1").style.display="none";
+			document.querySelector("#ans2").style.display="none";
+			document.querySelector("#ans3").style.display="none";
+			document.querySelector("#ans4").style.display="none";
+			document.querySelector("#ans5").style.display="none";
+			document.querySelector("#ans6").style.display="none";
+
+			
+			document.querySelector("#blue-text").style.display="none";
+			
+			document.querySelector("#red-text").style.display="none";
 
 		  },
 		  onClose: function(){
@@ -174,7 +195,10 @@ class Symptoms extends Component{
 										<span className="subheading">Let's do a health check!</span>
 										<h3 className="mb-4 align-self-stretch align-items-center">Symptoms survey</h3>
 										<p>This survey will give you a hint to see if you need to get tested or to
-										contact the health office.</p>
+										contact the health office. The questionnaire was inspired and based on information from the
+										<a href="https://www.zusammengegencorona.de/en/inform/recognize-symptoms/#faqitem=5750383b-e61b-5792-afac-f36cf48b2a7f" style={{textDecoration: 'underline'}}> Federal Ministry of Health </a>
+										,the <a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html" style={{textDecoration: 'underline'}}> Center for Disease Control and Prevention </a>
+										and the <a href="https://covapp.charite.de/" style={{textDecoration: 'underline'}}> CovApp </a>.</p>
 										
 											<p className="d-flex align-self-stretch align-items-center">
 											Note: This is not a definite evaluation. We should be aware of our
@@ -214,30 +238,50 @@ class Symptoms extends Component{
 			<section className="q2 ftco-about img ftco-section" id="q2">
 					
 					<div className="container">
+
+					{/* title */}
+					<div className="row-md-1 heading-section text-left ftco-animate fadeInUp ftco-animated">
+							<div className= "justify-content-center heading-section text-up ftco-animate fadeInUp ftco-animated">								
+									<span id="red-text" className="red-text subheading-edit " style={{top:50}}>
+										You result: Please seek for help!
+									</span>
+									<span id="blue-text" className="blue-text subheading-edit " style={{top:50}}>
+										Your result: Don't panic!
+									</span>
+							</div>
+					</div>
 					
 					<div className="row d-flex no-gutters">
 
 					
-			{/*IMAGE */}	
-					<div className="col-md-6 col-lg-5 d-flex" style={{maxWidth: 338, maxHeight: 338,top:'0px'}}>
-							<div id="theleft1" className="theleft1 img-about img d-flex align-items-stretch">
+						{/*IMAGE */}
+						
+						<div id="blue-image" className="col-md-6 col-lg-5 d-flex" style={{maxWidth: 338, maxHeight: 338,top:'0px'}}>
+							<div  className="img-about img d-flex align-items-stretch">
 								<div className="overlay"></div>
-								<img className="theleft1 img d-flex align-self-stretch align-items-center" src={girlSick} style={{ minWidth: 338, minHeight: 338,left:'65px',top:'100px'}}>
-								</img>
+									<img className="img d-flex align-self-stretch align-items-center" src={girlSick} style={{ minWidth: 100, minHeight:100,left:'65px',top:'100px'}}>
+									</img>
 							</div>
-					</div>
-
+						</div>
 			
+						
 
 			{/*TEXT */}
+
+			<div className="col-md-6 col-lg-7 d-flex align-self-stretch align-items-center" style={{maxWidth: 608, left:'180px',top:'0px'}}>
+					<div className="py-md-1 w-100 bg-light px-md-5">
+					<div className="py-md-1">
+							<div className="align-self-stretch align-items-center row justify-content-start pb-3">
+								<div className="align-items-center col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
+								
 			
-			<div className="col-md-12 col-lg-6 pl-md-5">
+			{/*<div className="col-md-12 col-lg-6 pl-md-5">
 				<div className="row justify-content-start pb-3">
-			  <div className="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">
-			  
-				<h3 className="mb-4">What does your survey indicate?</h3>
+			  <div className="col-md-12 heading-section ftco-animate fadeInUp ftco-animated">*/}
+
+			  <h4 className="mb-4 align-self-stretch align-items-center"style={{fontWeight:"bold"}}>What does your survey indicate?</h4>
 				{/*ANSWERS */}
-				<div id="theleft2" className="theleft2 text-about" style={{left:-200}}>
+				<div id="theleft2" className="theleft2 text-about" >
 					<div className="ans1" id="ans1">
 					<h4>Age factors</h4>
 					<p > Even when COVID-19 tends to be mild for your age, you are recommended to take precautions to protect yourself and others.</p>
@@ -245,37 +289,55 @@ class Symptoms extends Component{
 					<div className="ans2" id="ans2">
 					<h4 >Risk Group</h4>
 					<p >As a person in risk group, we recommend you to keep your treatment going and to have 
-					even more precautions when being in contact with other people. </p>
+					even more precautions when being in contact with other people. Here we give you a link to further information according to the CDC: <a style={{textDecoration: 'underline'}} href="https://www.cdc.gov/coronavirus/2019-ncov/need-extra-precautions/index.html">Click here</a></p>
 					</div>
 					<div className="ans4" id="ans4">
 					<h4>In contact with infected</h4>
-					<p>We advise you to inform your closest health center by telephone to get the indications in case you need a test.</p>
+					<p>We advise you to get in touch with your local public office to get the indications inmediately.  They will then decide on the further course of action. In general: you should stay at home and reduce the number of people with whom you are in personal contact.</p>
 					</div>
+
+					{/**To answers symptoms  */}
+					{/**When need to urgency   */}
 					<div className="ans3" id="ans3">
 					<h4>Alert!!!!</h4>
 					<p>Please we advise you to contact urgently the health center as you have problem breathing.
-					you can contact the emergency medical service. It can be reached nationwide on the telephone number (116-117) . If you have no mobility, you should definitely point this out.</p>
+					You can contact the emergency medical service. It can be reached nationwide on the telephone number (116 117). In urgent cases, such as respiratory distress, please call (112). If you have no mobility, you should definitely point this out.</p>
 				   </div>
+				   {/**When having some symptoms  */}
 					<div className="ans5" id="ans5">
 					<h4 className="ans5">Symptoms</h4>
 					<p className="ans5">An infection with the new coronavirus can - as with other respiratory diseases - leads usually to Cough, fever, joint and sore throat. However, the course of the disease can be very different. The spectrum ranges from asymptomatic courses to severe pneumonia with lung failure.
-					A doctor's office should only be consulted  after prior appointment  - and of course thatCough and sneeze etiquette as well as a good one Hand hygiene get noticed.
-					
-					Alternatively, you can contact the emergency medical service. He can be reached nationwide on telephone number 116 117 . If you are not mobile, you should definitely point this out.</p>
+					Please get in touch with your general practitioner. A doctor's office should only be consulted 
+					after prior appointment  - Cough and sneeze etiquette as well as a good one Hand hygiene should be noticed. 
+					In case the offices are closed, contact the out-of-hours patient care services at the number (116 117).
+					If you are not mobile, you should definitely point this out.</p>
 					</div>
-				   {/* <h4 className="ans6">Period since first symptom</h4>*/}
+					{/*When having none symptoms: take care  */}
+					<div className="ans7" id="ans7">
+					<h4 className="ans7">Symptoms</h4>
+			  		<p className="ans7">Great! You have no symptoms! To stay healthy keep the sneezing and coughing etiquette, adhere to the recommended minimum distance of 1.5 metres from other people and wear a face mask when out in public places (DHM formula).</p>
+					</div>
+					{/*When only sore throat */}
+					<div className="ans8" id="ans8">
+					<h4 className="ans8">Symptoms</h4>
+			  		<p className="ans8">A simple sore throat is not necessarily a sign of infection with the novel coronavirus. If you notice additional symptoms, such as fever, coughing, headache and joint pain or a runny nose, please get in touch with your general practitioner or, should they be closed, contact the out-of-hours patient care services at the number 116 117. In urgent cases, such as respiratory distress, please call 112.</p>
+					</div>
+				   {/* Period since first symptom: keep track*/}
 					<p className="ans6" id="ans6">It is recommended to keep track of the advance of your symptoms.</p>
 					
 			   
 				</div>
 				{/*end of answers */}
-				<div className="counter-wrap ftco-animate d-flex mt-md-3 fadeInUp ftco-animated align-items-center" >
-					<div className="text align-items-center">
+				<div className="row counter-wrap ftco-animate d-flex mt-md-3 fadeInUp ftco-animated align-items-center" >
+					<div className="col-md-7 text align-items-center">
 							<button type="button" value="Numbers" className="mb-12 btn-custom align-self-stretch align-items-center" onClick={()=>this.helpnumbers()}>
 									<p>Help numbers!</p>
 							</button>
-							</div>
-							</div>
+							<button type="button" value="Survey" className="mb-12 btn-custom align-self-stretch align-items-center" onClick={()=>this.myquiz()}>
+									<p>Repeat survey!</p>
+							</button>
+					</div>
+				</div>
 					
 			  
 			  
@@ -362,7 +424,8 @@ class Symptoms extends Component{
 						</div>
 					</div>
 				{/*END OF HELP NUMBERS */}
-
+			  	</div>
+				  </div>
 
 
 					</section>
